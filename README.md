@@ -4,6 +4,8 @@ Neatly packaged OAuth authorization via Google in Swift using GTMAppAuth. For us
 
 Or: Just an example to get GTMAppAuth to work in Swift as a replacement of [Google's official iOS Quickstart guide](https://developers.google.com/drive/ios/quickstart?ver=swift) (to do authorization for the Google Drive API in this case). As of mid December 2016, the guide is outdated and will NOT work for new projects or stop working for existing, untouched projects around April 2017. Also, see my stackoverflow answer [here](http://stackoverflow.com/a/41059043/893774).
 
-I'll add the walk-through to integrate the code provided in asap.
+I'll add the walk-through to integrate the code provided asap.
 
 (...)
+
+The code is just an example and meant to be copied and reused instead of adding yet another layer of frameworks to this (for the non-expert) already quite complex hierarchy of frameworks on AppAuth and GTMAppAuth.
