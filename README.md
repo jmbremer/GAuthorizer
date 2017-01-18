@@ -81,7 +81,9 @@ enum AuthorizationResult {
 GAuthorizer.shared.authorize(in: parentViewController)
 ```
 
-For the callback that comes in from the app-external authorization in Safari & Co, I just have to add in the AppDelegate.swift:
+Setting `authorizationCompletion` has to be done only once, like the setup above. However, the completion references a view that may just not be there yet on app start. That's why this is not part of the general setup.
+
+Finally, for the callback that comes in from the app-external authorization in Safari & Co, I just have to add in the AppDelegate.swift:
 ```
 func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey:Any]) -> Bool {
   if GAuthorizer.shared.continueAuthorization(with: url) {
