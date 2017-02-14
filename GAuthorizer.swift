@@ -14,7 +14,6 @@
 
 import AppAuth
 import GTMAppAuth
-import GTMOAuth2
 
 // Replace this by whatever logging framework you prefer:
 //import XCGLogger
