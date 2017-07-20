@@ -20,6 +20,21 @@ import GTMAppAuth
 //let log = XCGLogger.default
 
 
+/// The configuration I normally define separately.
+struct Config {
+
+    // Keep this in sync with the Google cloud console's credentials! (Also found in Google plist file.)
+    // Also keep in sync with Info.plist -> URL types (I found the reverse URL there, too. So, I assume that's sill required... And if you didn't notice, this is just a sample value.)
+    static let GoogleAuthClientID       = "107......8791-qb9ob..........6pen4q8besvq8sm3i.apps.googleusercontent.com"
+
+    static let GoogleAuthOIDCIssuer     = "https://accounts.google.com"
+
+    // The reverse client ID (that identifies the URL callback in AppDelegate) plus a little extra: That ':/oauthredirect' part is somewhat random, but helps somehow. I hope it doesn't also need to go into the .plist files. It doesn't, it seems.
+    // See here: https://github.com/google/GTMAppAuth/blob/master/Example-iOS/Source/GTMAppAuthExampleViewController.m
+    static let GoogleAuthRedirectURI    = "com.googleusercontent.apps.107......8791-qb9ob..........6pen4q8besvq8sm3i:/oauthredirect"
+}
+
+
 
 /// Get the singleton, `addScope`s as desired, set an `authorizationCompletion` (preferrably one that's either in the background or relies on the same view controller that issued the authorization request and is thus the one the app returns to when that, external, request completes), call `authorize(in)` from a given view controller. The authorization in Safari & Co will then reenter the app in the AppDelegate and cause `continueAuthorization(with)` to be called. See the minimal code that you have to add to `AppDelegate` for this.
 class GAuthorizer: NSObject, OIDAuthStateChangeDelegate, OIDAuthStateErrorDelegate {
